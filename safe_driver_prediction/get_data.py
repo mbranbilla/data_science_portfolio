@@ -1,6 +1,8 @@
 # For linux and MacOS
 # Require kaggle Api: can be installed by 'pip install kaggle'
 # https://www.kaggle.com/docs/api
+# Data comes from
+# https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/data
 
 import os
 
@@ -13,12 +15,11 @@ sh_command = '''
 
     if [ -d "data" ]; then
         rm data/*
-        mv sample_submission.csv train.csv test.csv data/
     else
         mkdir data
-        mv sample_submission.csv train.csv test.csv data/
     fi
 
+    mv sample_submission.csv train.csv test.csv data/
     rm *.7z
 '''
 
