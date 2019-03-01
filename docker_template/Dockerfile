@@ -10,7 +10,6 @@ COPY . /app
 COPY requirements.txt dependencies.sh /
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 RUN sh dependencies.sh && \

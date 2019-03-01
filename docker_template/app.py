@@ -1,10 +1,19 @@
 from flask import Flask
-import urllib.request
+import os
+import socket
 
 
 app = Flask(__name__)
 
-@app.route("/teste")
+@app.route("/")
+def main():
+    html = "<h3>Basic Docker Template.</h3>" \
+           "<b>Hostname:</b> {hostname}<br/>" 
+
+    return html.format(hostname=socket.gethostname())
+
+
+@app.route("/test")
 def teste():
     return "Success!"
 
