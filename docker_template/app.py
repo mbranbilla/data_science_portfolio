@@ -14,7 +14,7 @@ def main():
 
 
 @app.route("/test")
-def teste():
+def test():
     return "Success!"
 
 if __name__ == "__main__":
