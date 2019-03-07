@@ -10,14 +10,10 @@ COPY . /app
 COPY requirements.txt dependencies.sh /
 
 # Install any needed packages specified in requirements.txt
-RUN sh dependencies.sh
-
-# Install python requirements
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Remove requirements files
-RUN rm requirements.txt dependencies.sh
+RUN sh dependencies.sh && \
+    pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    rm dependencies.sh 
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
