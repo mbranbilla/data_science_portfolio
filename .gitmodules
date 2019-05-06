@@ -1,0 +1,3 @@
+[submodule "creditas-challenge"]
+	path = creditas-challenge
+	url = https://github.com/mbranbilla/creditas-challenge
