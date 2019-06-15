@@ -10,6 +10,8 @@ import pytz
 products = pd.read_csv('products.csv')
 
 products['product_title'] = [str.replace(x, ' ', '-') for x in products['product_title']]
+products['product_title'] = [str.replace(x, '.', '-') for x in products['product_title']]
+products['product_title'] = [str.replace(x, ',', '-') for x in products['product_title']]
 
 product_prices = pd.DataFrame(columns = ['created_at', 'product_title', 'url', 'source_code', 'prices', 'stores'])
 
@@ -20,7 +22,7 @@ for i, p in enumerate(products['product_title']):
     html = parser.fromstring(r.text)
 
     prices = html.xpath("//span[@class='secondary-price']/text()")
-    prices = [float(x.replace(',', '.')) for x in prices if x != "Total a prazo R$ "]
+    prices = [float(x.replace(',', '').replace('.', '')) / 100 for x in prices if x != "Total a prazo R$ "]
     
     stores = html.xpath("//div[@class='offer__seller']/img/@alt")
     
