@@ -3,7 +3,7 @@ import numpy as np
 
 class single_layer_perceptron:
     def __init__(self):
-        w = None
+        self.w = None
 
     def fit(self, X, y, learn_rate=0.05):
         w = np.random.uniform(low=0.0, high=0.01, size=np.ma.size(X, 1))
